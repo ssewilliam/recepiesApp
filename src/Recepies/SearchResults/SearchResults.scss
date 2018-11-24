@@ -1,0 +1,51 @@
+.resultsWrapper {
+  width: 100%;
+  border: 0.01em solid #cfcbcb;
+  background: #fff;
+  padding: 5px;
+  height: auto;
+  float: left;
+
+  .resultsBody {
+    width: 100%;
+    height: auto;
+
+    .recepeThumbnail {
+      width: 90px;
+      height: 90px;
+      margin-right: 10px;
+      float: left;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    .recepeData {
+      width: auto;
+      float: left;
+
+      span {
+        display: block;
+        text-align: left;
+        padding: 4px 0;
+      }
+
+      span:first-child {
+        padding-top: 0;
+        font-weight: bold;
+        font-size: 14px;
+      }
+
+      span:last-child {
+
+        a,
+        a:visited {
+          color: green;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}

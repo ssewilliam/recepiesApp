@@ -4,7 +4,9 @@
     "es6": true
   },
   "parser": "babel-eslint",
-  "extends": "eslint:recommended",
+  "extends": [
+    "plugin:react/recommended"
+  ],
   "parserOptions": {
     "ecmaVersion": 2015
   },
@@ -24,6 +26,7 @@
     "semi": [
       "error",
       "always"
-    ]
+    ],
+    "no-unused-vars":"warn"
   }
 }

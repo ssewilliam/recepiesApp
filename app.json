@@ -1,0 +1,21 @@
+{
+  "name": "recepiesApp",
+  "description": "This allows apps to be created automatically for every PR raised so that reviews can review the PR fully without cloning the branch",
+  "scripts": {
+  },
+  "env": {
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}

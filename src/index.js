@@ -5,6 +5,6 @@ import configuredStore from './RootStore';
 import RootComponent from './RootComponent';
 
 ReactDOM.render(
-  <Provider store={configuredStore()}>
+  <Provider store={configuredStore}>
     <RootComponent />
   </Provider>, document.getElementById('root'));

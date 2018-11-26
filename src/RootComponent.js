@@ -1,40 +1,51 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { SearchBar } from './Recepies/SearchBar/SearchBar';
-import { SearchResults } from './Recepies/SearchResults/SearchResults';
-import { simpleAction } from './actions/simpleAction';
+import fetchRecipe from './Recepies/SearchResults/selectors';
+import SearchBar from './Recepies/SearchBar/SearchBar';
+import { SearchResult } from './Recepies/SearchResults/SearchResult';
 
 class RootComponent extends Component {
+  state = {
+    recipeName: ''
+  }
+
+  fetchRecipeByName = (name) => {
+    this.setState({
+      recipeName: name
+    });
+  }
+
   render() {
+    const { recipeName } = this.state;
+    const { recipes } = this.props;
     return (
       <div className="App">
         <h2>Recepies App</h2>
-        <SearchBar />
+        <SearchBar fetchRecipeByName={this.fetchRecipeByName} />
         <hr/>
-        <SearchResults/>
-        <button onClick={this.simpleAction}>Test redux action</button>
-        <pre>
-          {
-            JSON.stringify(this.props)
-          }
-        </pre>
+        <SearchResult recipes={recipes} recipeName={recipeName} />
       </div>
     );
   }
-  simpleAction = (event) => {
-    this.props.simpleAction();
-  }
 }
-const mapStateToProps = state => ({
-  ...state
-});
-const mapDispatchToProps = dispatch => ({
-  simpleAction: () => dispatch(simpleAction())
-});
+
+const mapStateToProps = state => {
+  return {
+    ...state,
+    recipes: state.MealRecipesReducer.recipes
+  };
+};
+
+export const mapDispatchToProps = dispatch => {
+  return {
+    onFetch: (recipeName) => dispatch(fetchRecipe(recipeName))
+  };
+};
 
 RootComponent.propTypes = {
-  simpleAction: PropTypes.func
+  onFetch: PropTypes.func,
+  recipes: PropTypes.array
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(RootComponent);

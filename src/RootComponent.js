@@ -1,51 +1,18 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import fetchRecipe from './Recepies/SearchResults/selectors';
-import SearchBar from './Recepies/SearchBar/SearchBar';
-import { SearchResult } from './Recepies/SearchResults/SearchResult';
+import SearchBar from './Recepies/SearchBar';
+import SearchResults from './Recepies/SearchResults';
 
 class RootComponent extends Component {
-  state = {
-    recipeName: ''
-  }
-
-  fetchRecipeByName = (name) => {
-    this.setState({
-      recipeName: name
-    });
-  }
-
   render() {
-    const { recipeName } = this.state;
-    const { recipes } = this.props;
     return (
       <div className="App">
         <h2>Recepies App</h2>
-        <SearchBar fetchRecipeByName={this.fetchRecipeByName} />
+        <SearchBar />
         <hr/>
-        <SearchResult recipes={recipes} recipeName={recipeName} />
+        <SearchResults />
       </div>
     );
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    ...state,
-    recipes: state.MealRecipesReducer.recipes
-  };
-};
-
-export const mapDispatchToProps = dispatch => {
-  return {
-    onFetch: (recipeName) => dispatch(fetchRecipe(recipeName))
-  };
-};
-
-RootComponent.propTypes = {
-  onFetch: PropTypes.func,
-  recipes: PropTypes.array
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(RootComponent);
+export default RootComponent;

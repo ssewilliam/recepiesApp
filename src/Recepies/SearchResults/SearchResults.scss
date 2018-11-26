@@ -1,14 +1,18 @@
 .resultsWrapper {
   width: 100%;
-  border: 0.01em solid #cfcbcb;
-  background: #fff;
-  padding: 5px;
+  padding: 5px 0;
   height: auto;
   float: left;
+  margin-bottom: 40px;
 
   .resultsBody {
     width: 100%;
     height: auto;
+    border: 0.01em solid #cfcbcb;
+    background: #fff;
+    float: left;
+    margin-top: 10px;
+    padding: 5px;
 
     .recepeThumbnail {
       width: 90px;
@@ -47,5 +51,9 @@
         }
       }
     }
+  }
+
+  center {
+    padding: 10px 0;
   }
 }

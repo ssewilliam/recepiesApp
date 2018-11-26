@@ -1,11 +1,11 @@
 import {
-  fetchRecipeStart,
-  fetchRecipeSuccess,
-  fetchRecipeFail
+  fetchRecipesStart,
+  fetchRecipesSuccess,
+  fetchRecipesFail
 } from './action';
 
 export {
-  fetchRecipeStart,
-  fetchRecipeSuccess,
-  fetchRecipeFail
+  fetchRecipesStart,
+  fetchRecipesSuccess,
+  fetchRecipesFail
 };

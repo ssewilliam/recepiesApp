@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-import MealRecipesReducer from './Recepies/SearchResults/reducer';
+import MealRecipesReducer from './Recepies/SearchBar/reducer';
 
 const RootReducer = combineReducers({
   MealRecipesReducer

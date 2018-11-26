@@ -27,8 +27,22 @@ h2 {
 
 .App {
   max-width: 600px;
-  margin: 0 auto;
-  margin-top: 20px;
+  margin: 20px auto 0;
+
+  @media only screen and (max-width: 600px) {
+    padding: 6px 12px;
+    height: auto;
+    width:100%;
+    float: left;
+    margin-top: 0;
+
+    h2{
+      text-align:center
+    }
+    .recepeData {
+      float: none !important;
+    }
+  }
 
   input {
     height: 30px;
@@ -38,7 +52,8 @@ h2 {
     border: 1px solid #b2b2b2;
   }
 
+  // Can't this be compressed into 1 line?
   hr {
-    margin: 20px auto
+    margin: 20px 0 auto;
   }
 }
